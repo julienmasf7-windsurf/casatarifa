@@ -45,6 +45,14 @@
   .kicker.dim{color:var(--ink2)}
   .kicker.on{color:rgba(255,255,255,.92)}
 
+  /* tarifa.life badge */
+  .tl-badge{display:inline-flex;align-items:center;gap:.5em;margin:2px 0 18px;padding:.5em 1.05em;border-radius:999px;
+    background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.6);color:var(--ink);font-family:var(--sans);font-weight:600;
+    font-size:.86rem;letter-spacing:-.01em;box-shadow:0 4px 16px rgba(0,0,0,.14)}
+  .tl-badge svg{width:1.05em;height:1.05em;color:var(--rose)}
+  .tl-badge:hover{background:rgba(255,255,255,.95);box-shadow:0 6px 22px rgba(0,0,0,.2)}
+
   /* buttons */
   .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:.98rem;
     padding:.8em 1.4em;border-radius:999px;border:1px solid transparent;cursor:pointer;white-space:nowrap}
@@ -215,9 +223,10 @@
 
 <main id="top">
   <section class="hero" style="padding-block:0">
-    <img class="bg" src="photos/c2-16.webp" alt="Vue sur la plage de Los Lances, les dunes de Valdevaqueros et les montagnes depuis Casa Almas, Tarifa" />
+    <img class="bg" src="https://images.unsplash.com/photo-1643004868439-64c7c8696187?q=90&w=3840&auto=format&fit=crop" alt="Kitesurfeur en plein saut au coucher de soleil face à Tarifa" />
     <div class="hero-in">
       <div class="kicker on"><i data-lucide="map-pin"></i> Tarifa · Costa de la Luz</div>
+      <a class="tl-badge" href="https://tarifa.life" target="_blank" rel="noopener"><i data-lucide="wind"></i> Réserver sur tarifa.life</a>
       <h1>Là où le vent<br>vous appartient</h1>
       <p class="lede">Casa Almas — deux maisons face à l'Atlantique, au point le plus au sud de l'Europe.</p>
       <div class="cta-row">
@@ -271,7 +280,7 @@
               <span class="chip"><i data-lucide="sun"></i> 2 terrasses</span>
             </div>
             <p class="desc">Un triplex baigné de lumière : salon-mezzanine, chambre en alcôve sous les toits et terrasse plein ciel pour les plus beaux couchers de soleil de la baie.</p>
-            <div class="foot"><div class="price">dès <b>119 €</b> / nuit</div><a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Réserver <i data-lucide="arrow-right"></i></a></div>
+            <div class="foot"><div class="price">dès <b data-price-slug="alma-2">89 €</b> / nuit</div><a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Réserver <i data-lucide="arrow-right"></i></a></div>
           </div>
         </article>
         <article class="casa">
@@ -285,7 +294,7 @@
               <span class="chip"><i data-lucide="sun"></i> Terrasse</span>
             </div>
             <p class="desc">La jumelle, dans le même esprit andalou : cuisine en zellige, salle d'eau vert d'eau et patio inondé de soleil. Le refuge parfait après une journée de vent.</p>
-            <div class="foot"><div class="price">dès <b>99 €</b> / nuit</div><a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Réserver <i data-lucide="arrow-right"></i></a></div>
+            <div class="foot"><div class="price">dès <b data-price-slug="alma-1">89 €</b> / nuit</div><a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Réserver <i data-lucide="arrow-right"></i></a></div>
           </div>
         </article>
       </div>
@@ -463,6 +472,25 @@
       if(e.key==='Escape') close(); else if(e.key==='ArrowRight') show(i+1); else if(e.key==='ArrowLeft') show(i-1);
     });
   })();
+</script>
+<script>
+(function(){
+  var SB="https://kpszqnqikwhjiqdazfxs.supabase.co";
+  var ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtwc3pxbnFpa3doamlxZGF6ZnhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MzU2MDMsImV4cCI6MjA5MzIxMTYwM30.ONJFtiFO3sSJhuYhJjJU_ozCvntxujqJqvA_Y3JyNz4";
+  var MAP={"f1e575f2-0244-4223-a290-bf5326e4a32a":"alma-1","206efeeb-8d52-4a21-a000-575d1a80755b":"alma-2"};
+  try{
+    var today=new Date().toISOString().slice(0,10);
+    var url=SB+"/rest/v1/apartment_availability?select=apartment_id,custom_price_eur&is_available=eq.true&date=gte."+today+"&custom_price_eur=gt.0&order=custom_price_eur.asc";
+    fetch(url,{headers:{apikey:ANON,Authorization:"Bearer "+ANON}}).then(function(r){return r.ok?r.json():null;}).then(function(rows){
+      if(!rows) return;
+      var mins={};
+      rows.forEach(function(row){var s=MAP[row.apartment_id];var p=row.custom_price_eur;if(!s||p==null)return;if(mins[s]==null||p<mins[s])mins[s]=p;});
+      Object.keys(mins).forEach(function(s){
+        document.querySelectorAll('[data-price-slug="'+s+'"]').forEach(function(el){el.textContent=Math.round(mins[s])+" €";});
+      });
+    }).catch(function(){});
+  }catch(e){}
+})();
 </script>
 
 </body>
