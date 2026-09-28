@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>*{box-sizing:border-box}html,body{margin:0}img{display:block;max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<meta charset="utf-8" />
+<title>Casa Almas Tarifa</title>
+<meta name="description" content="Casa Almas — deux maisons face à l'Atlantique, à Tarifa. Vue mer, terrasses au soleil, à deux pas de la plage de Los Lances. Réservation en direct sur tarifa.life." />
+<meta property="og:title" content="Casa Almas — Tarifa" />
+<meta property="og:description" content="Deux maisons face à l'océan, au cœur de la capitale du vent. Réservation sur tarifa.life." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" />
+<style>
+  :root{
+    --bg:#ffffff; --sand:#faf7f2; --card:#ffffff;
+    --ink:#222222; --ink2:#717171; --line:#ebebeb; --line-2:#dddddd;
+    --rose:#ff385c; --rose-dark:#e11d48; --rose-soft:#fff1f3;
+    --teal:#088395;
+    --shadow-card:0 1px 2px rgba(0,0,0,.05);
+    --shadow-hover:0 8px 28px rgba(0,0,0,.12);
+    --maxw:1200px;
+    --sans:"Inter Tight",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.55;font-feature-settings:"ss01","cv11";
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-tap-highlight-color:transparent}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{margin:0;font-family:var(--sans);font-weight:800;line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
+  p{margin:0}
+  a,button,[role="button"]{transition:transform .08s ease-out,opacity .1s,background-color .14s,border-color .14s,box-shadow .14s;touch-action:manipulation}
+  a:active,button:active,[role="button"]:active{transform:scale(.97)}
+  p a:active{transform:none;opacity:.7}
+  svg.lucide{width:1em;height:1em;stroke-width:1.75;flex:none}
+
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+  .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--rose);display:inline-flex;align-items:center;gap:.5em}
+  .kicker.dim{color:var(--ink2)}
+  .kicker.on{color:rgba(255,255,255,.92)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:.98rem;
+    padding:.8em 1.4em;border-radius:999px;border:1px solid transparent;cursor:pointer;white-space:nowrap}
+  .btn svg.lucide{width:1.05em;height:1.05em}
+  .btn:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+  .btn-rose{background:var(--rose);color:#fff}
+  .btn-rose:hover{background:var(--rose-dark)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000}
+  .btn-outline{background:#fff;color:var(--ink);border-color:var(--line-2)}
+  .btn-outline:hover{border-color:var(--ink)}
+  .btn-white{background:#fff;color:var(--ink)}
+  .btn-white:hover{background:#f4f4f4}
+  .btn-glass{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+  .btn-glass:hover{background:rgba(255,255,255,.24)}
+
+  /* header */
+  header.bar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .bar-in{max-width:var(--maxw);margin-inline:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .word{display:flex;align-items:center;gap:.5em;font-weight:800;font-size:1.18rem;letter-spacing:-.02em;color:var(--ink)}
+  .word .mk{display:inline-flex;color:var(--rose)}
+  .word .mk svg{width:20px;height:20px;stroke-width:2}
+  .word small{font-family:var(--mono);font-weight:500;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);margin-left:.15em}
+  nav.links{display:flex;align-items:center;gap:8px}
+  nav.links a.nl{font-size:.93rem;font-weight:500;color:var(--ink);padding:.5em .8em;border-radius:999px}
+  nav.links a.nl:hover{background:var(--sand)}
+  @media(max-width:860px){nav.links a.nl{display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:clamp(540px,80vh,760px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.26) 0%,rgba(0,0,0,.02) 32%,rgba(0,0,0,.60) 100%)}
+  .hero-in{width:100%;max-width:var(--maxw);margin-inline:auto;padding:0 24px 54px;color:#fff}
+  .hero h1{font-size:clamp(2.7rem,8vw,5.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.0;color:#fff}
+  .hero .lede{margin-top:18px;max-width:36ch;font-size:clamp(1.02rem,2.2vw,1.28rem);font-weight:500;color:rgba(255,255,255,.94)}
+  .hero .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .hero .kicker{margin-bottom:16px}
+
+  section{padding-block:clamp(56px,7.5vw,100px)}
+  .sec-head{max-width:64ch}
+  .sec-head h2{font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:800;margin-top:14px}
+  .sec-head .intro{margin-top:16px;font-size:1.1rem;color:var(--ink2);max-width:58ch;font-weight:500}
+
+  /* intro split */
+  .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,68px);align-items:center}
+  @media(max-width:860px){.intro-grid{grid-template-columns:1fr;gap:32px}}
+  .intro-copy .lead{font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:700;letter-spacing:-.02em;line-height:1.18;color:var(--ink);margin:16px 0 18px}
+  .intro-copy .body{font-size:1.05rem;color:var(--ink2);font-weight:450}
+  .intro-copy .body p+p{margin-top:14px}
+  .intro-media{position:relative}
+  .intro-media img{width:100%;height:clamp(380px,52vw,560px);object-fit:cover;border-radius:20px}
+  .intro-media .tag{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink);font-size:.82rem;font-weight:600;padding:.5em 1em;border-radius:999px;box-shadow:var(--shadow-hover);display:inline-flex;align-items:center;gap:.5em}
+  .intro-media .tag svg{width:15px;height:15px;color:var(--rose)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--sand);border-radius:16px;padding:24px 22px}
+  .stat .n{font-size:2rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+  .stat .l{margin-top:8px;font-size:.9rem;color:var(--ink2);font-weight:500}
+
+  /* casas */
+  .casas{background:var(--sand)}
+  .casa-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  @media(max-width:820px){.casa-grid{grid-template-columns:1fr}}
+  .casa{background:var(--card);border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-card);display:flex;flex-direction:column}
+  .casa:hover{box-shadow:var(--shadow-hover)}
+  .casa .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .casa .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .casa:hover .ph img{transform:scale(1.04)}
+  .casa .badge{position:absolute;top:14px;left:14px;background:#fff;color:var(--ink);font-size:.74rem;font-weight:700;padding:.42em .85em;border-radius:999px;display:inline-flex;align-items:center;gap:.4em;box-shadow:var(--shadow-card)}
+  .casa .badge svg{width:13px;height:13px;color:var(--rose)}
+  .casa .body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .casa h3{font-size:1.55rem;font-weight:800}
+  .casa .meta{display:flex;flex-wrap:wrap;gap:8px}
+  .casa .chip{font-size:.82rem;color:var(--ink2);font-weight:500;background:var(--sand);border:1px solid var(--line);padding:.36em .8em;border-radius:999px;display:inline-flex;align-items:center;gap:.4em}
+  .casa .chip svg{width:14px;height:14px;color:var(--ink2)}
+  .casa .desc{color:var(--ink2);font-size:.98rem;font-weight:450}
+  .casa .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:6px}
+  .casa .price{font-size:.95rem;color:var(--ink2)}
+  .casa .price b{font-size:1.4rem;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+
+  /* gallery */
+  .gal-sub{display:flex;align-items:center;gap:14px;margin:40px 0 18px}
+  .gal-sub h3{font-size:1.3rem;font-weight:800}
+  .gal-sub .ln{flex:1;height:1px;background:var(--line)}
+  .gal-sub a{font-family:var(--mono);font-size:.78rem;font-weight:500;color:var(--rose);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+  .gal-sub a:hover{color:var(--rose-dark)}
+  .gal{columns:3;column-gap:14px}
+  @media(max-width:900px){.gal{columns:2}}
+  @media(max-width:520px){.gal{columns:1}}
+  .gal figure{margin:0 0 14px;break-inside:avoid;border-radius:16px;overflow:hidden;cursor:zoom-in;background:var(--sand);box-shadow:var(--shadow-card)}
+  .gal img{width:100%;height:auto;transition:transform .5s ease}
+  .gal figure:hover img{transform:scale(1.03)}
+  .gal figure:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+
+  /* discover */
+  .disc{background:var(--sand)}
+  .disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  @media(max-width:960px){.disc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.disc-grid{grid-template-columns:1fr}}
+  a.disc-card{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 22px;color:var(--ink);min-height:184px}
+  a.disc-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px)}
+  a.disc-card:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+  .disc-ic{width:46px;height:46px;border-radius:12px;background:var(--rose-soft);display:flex;align-items:center;justify-content:center}
+  .disc-ic svg{width:23px;height:23px;color:var(--rose);stroke-width:2}
+  .disc-card h3{font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+  .disc-card p{color:var(--ink2);font-size:.92rem;font-weight:450;flex:1}
+  .disc-card .go{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--rose);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:.4em}
+  .disc-card .go svg{width:13px;height:13px}
+
+  /* location */
+  .loc{position:relative;overflow:hidden;isolation:isolate;color:#fff}
+  .loc img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+  .loc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.66),rgba(0,0,0,.24))}
+  .loc h2{color:#fff;font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:800}
+  .loc .intro{color:rgba(255,255,255,.92);max-width:54ch;margin-top:16px;font-size:1.1rem;font-weight:500}
+  .loc .pins{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+  .loc .pin{font-size:.85rem;font-weight:500;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);padding:.5em 1em;border-radius:999px;backdrop-filter:blur(4px);display:inline-flex;align-items:center;gap:.45em}
+  .loc .pin svg{width:14px;height:14px}
+
+  /* final */
+  .final{text-align:center}
+  .final h2{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:800}
+  .final p{color:var(--ink2);margin-top:14px;font-size:1.1rem;max-width:50ch;margin-inline:auto;font-weight:500}
+  .final .cta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+  /* footer */
+  footer{background:var(--sand);border-top:1px solid var(--line)}
+  .foot-in{max-width:var(--maxw);margin-inline:auto;padding:54px 24px 30px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+  @media(max-width:760px){.foot-in{grid-template-columns:1fr 1fr;gap:26px}}
+  @media(max-width:480px){.foot-in{grid-template-columns:1fr}}
+  footer .blurb{margin-top:12px;color:var(--ink2);font-size:.94rem;max-width:34ch;font-weight:450}
+  footer h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:500;margin:0 0 14px}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  footer li a{color:var(--ink);font-size:.94rem;font-weight:500}
+  footer li a:hover{color:var(--rose)}
+  .foot-legal{border-top:1px solid var(--line)}
+  .foot-legal .in2{max-width:var(--maxw);margin-inline:auto;padding:18px 24px 34px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;color:var(--ink2);font-size:.8rem;font-weight:450}
+  .foot-legal a{color:var(--rose);font-weight:600}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-width:min(94vw,1180px);max-height:88vh;width:auto;height:auto;border-radius:12px}
+  .lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .lb button:hover{background:rgba(255,255,255,.26)}
+  .lb button svg{width:22px;height:22px}
+  .lb .close{top:18px;right:18px;width:44px;height:44px}
+  .lb .prev{left:16px;top:50%;transform:translateY(-50%)}
+  .lb .next{right:16px;top:50%;transform:translateY(-50%)}
+  @media(max-width:560px){.lb .prev,.lb .next{top:auto;bottom:22px;transform:none}.lb .prev{left:26px}.lb .next{right:26px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="word" href="#top"><span class="mk"><i data-lucide="wind"></i></span>Casa Almas <small>Tarifa</small></a>
+    <nav class="links">
+      <a class="nl" href="#maisons">Les maisons</a>
+      <a class="nl" href="#galerie">Galerie</a>
+      <a class="nl" href="#decouvrir">Découvrir</a>
+      <a class="nl" href="#tarifa">L'emplacement</a>
+      <a class="btn btn-rose" href="https://tarifa.life/fr/apartments" target="_blank" rel="noopener">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-block:0">
+    <img class="bg" src="photos/c2-16.webp" alt="Vue sur la plage de Los Lances, les dunes de Valdevaqueros et les montagnes depuis Casa Almas, Tarifa" />
+    <div class="hero-in">
+      <div class="kicker on"><i data-lucide="map-pin"></i> Tarifa · Costa de la Luz</div>
+      <h1>Là où le vent<br>vous appartient</h1>
+      <p class="lede">Casa Almas — deux maisons face à l'Atlantique, au point le plus au sud de l'Europe.</p>
+      <div class="cta-row">
+        <a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Réserver Casa Alma 2 <i data-lucide="arrow-right"></i></a>
+        <a class="btn btn-glass" href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Casa Alma 1</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="histoire">
+    <div class="wrap intro-grid">
+      <div class="intro-copy">
+        <div class="kicker">L'esprit des lieux</div>
+        <p class="lead">Il y a un endroit, tout au bout de l'Andalousie, où deux mers se rencontrent et où le vent décide du programme de la journée.</p>
+        <div class="body">
+          <p>Ici, les réveils ont la couleur du sable de Los Lances et les soirées celle des couchers de soleil sur le détroit, avec l'Afrique en ligne de mire. Casa Almas, ce sont deux maisons sur plusieurs niveaux, blanchies à la chaux et habillées de zellige fait main, de bois patiné et de tomettes chaudes.</p>
+          <p>On y pose ses sacs, on grimpe sur la terrasse, un verre à la main, et l'on comprend pourquoi personne ne repart vraiment de Tarifa. À quelques minutes à pied de la plage et des ruelles blanches du centre.</p>
+        </div>
+      </div>
+      <div class="intro-media">
+        <img src="photos/c2-2.webp" alt="Terrasse de Casa Alma 2 au coucher de soleil, table dressée face à la mer, Tarifa" />
+        <span class="tag"><i data-lucide="sunset"></i> Terrasse · l'heure dorée</span>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><div class="n">2</div><div class="l">maisons indépendantes</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">voyageurs par maison</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">terrasses face à la mer</div></div>
+        <div class="stat"><div class="n">36°N</div><div class="l">le sud de l'Europe</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="maisons" class="casas">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Les maisons</div>
+        <h2>Deux sœurs, un même horizon</h2>
+        <p class="intro">Réservez en direct sur tarifa.life. Le total est simplement bloqué sur votre carte : rien n'est débité tant que l'hôte n'a pas confirmé votre séjour.</p>
+      </div>
+      <div class="casa-grid">
+        <article class="casa">
+          <div class="ph"><img src="photos/c2-17.webp" alt="Salon lumineux avec mezzanine et coin repas de Casa Alma 2, Tarifa" /><span class="badge"><i data-lucide="badge-check"></i> Réservation en ligne</span></div>
+          <div class="body">
+            <h3>Casa Alma 2</h3>
+            <div class="meta">
+              <span class="chip"><i data-lucide="users"></i> 4 voyageurs</span>
+              <span class="chip"><i data-lucide="layers"></i> Triplex</span>
+              <span class="chip"><i data-lucide="waves"></i> Vue mer</span>
+              <span class="chip"><i data-lucide="sun"></i> 2 terrasses</span>
+            </div>
+            <p class="desc">Un triplex baigné de lumière : salon-mezzanine, chambre en alcôve sous les toits et terrasse plein ciel pour les plus beaux couchers de soleil de la baie.</p>
+            <div class="foot"><div class="price">dès <b>119 €</b> / nuit</div><a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Réserver <i data-lucide="arrow-right"></i></a></div>
+          </div>
+        </article>
+        <article class="casa">
+          <div class="ph"><img src="photos/c1r-19.webp" alt="Terrasse de Casa Alma 1 au coucher de soleil avec vue mer, Tarifa" /><span class="badge"><i data-lucide="badge-check"></i> Réservation en ligne</span></div>
+          <div class="body">
+            <h3>Casa Alma 1</h3>
+            <div class="meta">
+              <span class="chip"><i data-lucide="users"></i> 4 voyageurs</span>
+              <span class="chip"><i data-lucide="layers"></i> Triplex</span>
+              <span class="chip"><i data-lucide="waves"></i> Vue mer</span>
+              <span class="chip"><i data-lucide="sun"></i> Terrasse</span>
+            </div>
+            <p class="desc">La jumelle, dans le même esprit andalou : cuisine en zellige, salle d'eau vert d'eau et patio inondé de soleil. Le refuge parfait après une journée de vent.</p>
+            <div class="foot"><div class="price">dès <b>99 €</b> / nuit</div><a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Réserver <i data-lucide="arrow-right"></i></a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">La visite</div>
+        <h2>Chaque pièce respire Tarifa</h2>
+        <p class="intro">Matières naturelles, lumière du sud et affiches vintage — Punta Paloma, Isla de las Palomas, Valdevaqueros. Cliquez pour agrandir.</p>
+      </div>
+
+      <div class="gal-sub"><h3>Casa Alma 2</h3><span class="ln"></span><a href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Réserver →</a></div>
+      <div class="gal">
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-7.webp" alt="Salon avec escalier mezzanine et coin repas, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-3.webp" alt="Chambre à deux lits avec affiches vintage de Tarifa, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-6.webp" alt="Terrasse sur le toit au coucher du soleil, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-18.webp" alt="Patio andalou aux murs blancs et carrelage terracotta, Casa Alma 2, Tarifa" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-12.webp" alt="Chambre loft lumineuse sous les toits, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-10.webp" alt="Coin repas et cuisine ouverte vus de la mezzanine, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-5.webp" alt="Chambre avec appliques en rotin et linge terracotta, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-13.webp" alt="Salle d'eau en zellige beige avec douche à l'italienne, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-11.webp" alt="Chambre en mezzanine avec tapis berbère, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-9.webp" alt="Escalier en bois et décoration bohème, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-8.webp" alt="Affiche windsurf vintage et cactus, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-4.webp" alt="Détail de la chambre à deux lits, Casa Alma 2" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c2-15.webp" alt="Coucher de soleil orange sur les toits et la mer, Casa Alma 2" loading="lazy" /></figure>
+      </div>
+
+      <div class="gal-sub"><h3>Casa Alma 1</h3><span class="ln"></span><a href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Réserver →</a></div>
+      <div class="gal">
+        <figure tabindex="0"><img class="lb-item" src="photos/c1r-20.webp" alt="Séjour et coin repas de Casa Alma 1 avec escalier, Tarifa" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1r-22.webp" alt="Chambre à deux lits avec affiches Tarifa et Punta Paloma, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-13.jpg" alt="Salon avec banquette et grande table en bois, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-11.jpg" alt="Cuisine en zellige blanc, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1r-21.webp" alt="Chambre mezzanine avec tapis berbère coloré, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-09.jpg" alt="Salle d'eau en zellige vert d'eau, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1r-24.webp" alt="Chambre lumineuse avec vue et tapis coloré, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1r-23.webp" alt="Vue sur les toits et la mer depuis Casa Alma 1, Tarifa" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-16.jpg" alt="Patio andalou blanchi à la chaux, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-12.jpg" alt="Coin repas et cuisine ouverte, Casa Alma 1" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-07.jpg" alt="Deuxième chambre de Casa Alma 1, Tarifa" loading="lazy" /></figure>
+        <figure tabindex="0"><img class="lb-item" src="photos/c1-15.jpg" alt="Terrasse avec vue mer au couchant, Casa Alma 1" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="decouvrir" class="disc">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Vivre Tarifa</div>
+        <h2>Tout est à deux pas</h2>
+        <p class="intro">Casa Almas vous pose au milieu de tout. Le reste se découvre sur tarifa.life, le guide de la baie : où manger, où rider, où sortir, où souffler.</p>
+      </div>
+      <div class="disc-grid">
+        <a class="disc-card" href="https://tarifa.life/fr/restaurants" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="utensils"></i></span><h3>Manger &amp; boire</h3><p>Des chiringuitos les pieds dans le sable aux tables du centre historique.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/spots" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="wind"></i></span><h3>Spots de kite &amp; wing</h3><p>Los Lances, Valdevaqueros, Balneario : où poser sa voile selon le vent.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/ecoles" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="graduation-cap"></i></span><h3>Écoles &amp; cours</h3><p>Débuter ou progresser avec les meilleurs moniteurs de la baie.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/bien-etre" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="flower-2"></i></span><h3>Bien-être</h3><p>Yoga face à l'océan, massages et soins pour récupérer après le vent.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/soirees" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="music"></i></span><h3>Soirées</h3><p>Sunset au son des DJ, tapas et nuits tarifeñas qui s'étirent.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/location" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="bike"></i></span><h3>Location de matériel</h3><p>Kite, wing, planches, vélos : tout l'équipement, sur place.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/actualites" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="newspaper"></i></span><h3>Agenda &amp; actus</h3><p>Événements, régates et festivals : tout ce qui bouge à Tarifa.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+        <a class="disc-card" href="https://tarifa.life/fr/trajets" target="_blank" rel="noopener"><span class="disc-ic"><i data-lucide="car-front"></i></span><h3>Covoiturage</h3><p>Rejoindre les spots et l'aéroport de Málaga, entre riders.</p><span class="go">Voir sur tarifa.life <i data-lucide="arrow-right"></i></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="tarifa" class="loc">
+  <img class="bg" src="photos/c2-16.webp" alt="Plage de Los Lances, dunes de Valdevaqueros et montagnes depuis Tarifa" />
+  <div class="wrap">
+    <div class="kicker on"><i data-lucide="map-pin"></i> L'emplacement</div>
+    <h2 style="margin-top:14px">Au cœur de la capitale du vent</h2>
+    <p class="intro">Entre deux mers et deux continents, Tarifa vit dehors : kite et wing sur Los Lances, dunes de Valdevaqueros, ruelles blanches du centre et traversées vers Tanger. Casa Almas vous place au milieu de tout ça.</p>
+    <div class="pins">
+      <span class="pin"><i data-lucide="waves"></i> Plage de Los Lances</span>
+      <span class="pin"><i data-lucide="wind"></i> Valdevaqueros</span>
+      <span class="pin"><i data-lucide="building-2"></i> Centre historique</span>
+      <span class="pin"><i data-lucide="ship"></i> Port · Tanger</span>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="kicker" style="justify-content:center">Réservez en direct</div>
+    <h2 style="margin-top:12px">Votre été à Tarifa commence ici</h2>
+    <p>Disponibilités, tarifs et réservation sécurisée sur tarifa.life. Sans frais cachés, sans intermédiaire.</p>
+    <div class="cta-row">
+      <a class="btn btn-rose" href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Réserver Casa Alma 2 <i data-lucide="arrow-right"></i></a>
+      <a class="btn btn-outline" href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Réserver Casa Alma 1 <i data-lucide="arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <a class="word" href="#top"><span class="mk"><i data-lucide="wind"></i></span>Casa Almas <small>Tarifa</small></a>
+      <p class="blurb">Deux maisons face à l'Atlantique, à réserver en direct sur tarifa.life.</p>
+    </div>
+    <div>
+      <h4>Réserver</h4>
+      <ul>
+        <li><a href="https://tarifa.life/fr/apartments/alma-1" target="_blank" rel="noopener">Casa Alma 1</a></li>
+        <li><a href="https://tarifa.life/fr/apartments/alma-2" target="_blank" rel="noopener">Casa Alma 2</a></li>
+        <li><a href="https://tarifa.life/fr/apartments" target="_blank" rel="noopener">Tous les logements</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Découvrir</h4>
+      <ul>
+        <li><a href="https://tarifa.life/fr/restaurants" target="_blank" rel="noopener">Restaurants &amp; bars</a></li>
+        <li><a href="https://tarifa.life/fr/spots" target="_blank" rel="noopener">Spots de kite</a></li>
+        <li><a href="https://tarifa.life/fr/ecoles" target="_blank" rel="noopener">Écoles &amp; cours</a></li>
+        <li><a href="https://tarifa.life/fr/bien-etre" target="_blank" rel="noopener">Bien-être</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Tarifa.life</h4>
+      <ul>
+        <li><a href="https://tarifa.life" target="_blank" rel="noopener">Accueil</a></li>
+        <li><a href="https://tarifa.life/fr/actualites" target="_blank" rel="noopener">Actualités</a></li>
+        <li><a href="https://tarifa.life/fr/soirees" target="_blank" rel="noopener">Soirées</a></li>
+        <li><a href="https://tarifa.life/fr/trajets" target="_blank" rel="noopener">Covoiturage</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <div class="in2">
+      <span>© <span id="yr"></span> Casa Almas · Tarifa · Propulsé par <a href="https://tarifa.life" target="_blank" rel="noopener">tarifa.life</a></span>
+      <span>ALMA INVEST SL · B26912873 · Estepona, España</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="close" id="lbClose" aria-label="Fermer"><i data-lucide="x"></i></button>
+  <button class="prev" id="lbPrev" aria-label="Précédent"><i data-lucide="chevron-left"></i></button>
+  <img id="lbImg" src="" alt="" />
+  <button class="next" id="lbNext" aria-label="Suivant"><i data-lucide="chevron-right"></i></button>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"LodgingBusiness","name":"Casa Alma 1","description":"Maison avec vue mer et terrasse, à Tarifa.","url":"https://tarifa.life/fr/apartments/alma-1","address":{"@type":"PostalAddress","addressLocality":"Tarifa","addressRegion":"Cádiz","addressCountry":"ES"}},
+{"@type":"LodgingBusiness","name":"Casa Alma 2","description":"Triplex avec vue mer et deux terrasses, à Tarifa.","url":"https://tarifa.life/fr/apartments/alma-2","address":{"@type":"PostalAddress","addressLocality":"Tarifa","addressRegion":"Cádiz","addressCountry":"ES"}}
+]}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script>
+  (function(){
+    try{ if(window.lucide&&lucide.createIcons) lucide.createIcons(); }catch(e){}
+    try{ document.getElementById('yr').textContent = new Date().getFullYear(); }catch(e){}
+    var figs = Array.prototype.slice.call(document.querySelectorAll('.lb-item'));
+    var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+    var i = 0;
+    function show(n){ if(!figs.length) return; i=(n+figs.length)%figs.length; lbImg.src=figs[i].src; lbImg.alt=figs[i].alt||''; }
+    function open(n){ show(n); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
+    function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; }
+    figs.forEach(function(im, idx){
+      var fig = im.parentElement;
+      fig.addEventListener('click', function(){ open(idx); });
+      fig.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(idx);} });
+    });
+    document.getElementById('lbClose').addEventListener('click', close);
+    document.getElementById('lbNext').addEventListener('click', function(e){ e.stopPropagation(); show(i+1); });
+    document.getElementById('lbPrev').addEventListener('click', function(e){ e.stopPropagation(); show(i-1); });
+    lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+    document.addEventListener('keydown', function(e){
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape') close(); else if(e.key==='ArrowRight') show(i+1); else if(e.key==='ArrowLeft') show(i-1);
+    });
+  })();
+</script>
+
+</body>
+</html>
